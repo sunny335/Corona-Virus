@@ -6,6 +6,8 @@ import 'src/assets/scss/style.scss';
 import Fallback from 'src/components/Fallback';
 import NotFound from 'src/components/404';
 import withTitle from 'src/components/TitleComponent';
+import Navbar from 'src/components/Header/Navbar/Navbar';
+import Appointment from '../Appointment';
 
 // Pages
 const Docs = lazy(() => import('../Documentation'));
@@ -17,6 +19,7 @@ const App = () => {
     <>
       <Suspense fallback={<Fallback />}>
         <Router>
+          <Navbar />
           <Switch>
             {/* Page routes */}
             <Route
@@ -25,6 +28,17 @@ const App = () => {
               render={(props) =>
                 withTitle({
                   component: Home,
+                  title: 'Welcome',
+                  ...props,
+                })
+              }
+            />
+            <Route
+              exact
+              path="/appointment"
+              render={(props) =>
+                withTitle({
+                  component: Appointment,
                   title: 'Welcome',
                   ...props,
                 })

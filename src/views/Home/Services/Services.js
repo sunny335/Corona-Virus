@@ -1,13 +1,16 @@
 import React from 'react';
-import fluoride from 'src/assets/images/001-dental.png';
-import Cavity from 'src/assets/images/tooth.png';
-import Teeth from 'src/assets/images/tooth (1).png';
 import ServiceDetails from 'src/components/ServiceDetails/ServiceDetails';
 import DentalCare from 'src/components//DentalCare/DentalCare';
+import {
+  faAmbulance,
+  faVirus,
+  faClinicMedical,
+} from '@fortawesome/free-solid-svg-icons';
+
 const serviceData = [
-  { name: 'Fluoride Treatment', img: fluoride },
-  { name: 'Cavity Felling', img: Cavity },
-  { name: 'Teeth whitening', img: Teeth },
+  { name: 'Corona Virus Treatment', img: faVirus },
+  { name: 'Medicine Shop', img: faClinicMedical },
+  { name: 'Ambulance', img: faAmbulance },
 ];
 const Services = () => {
   return (

@@ -1,9 +1,10 @@
 import React from 'react';
-import dentalImg from 'src/assets/images/Mask Group 3.png';
+import dentalImg from 'src/assets/images/smile.jpg';
+
 const DentalInfo = [
   {
     img: dentalImg,
-    title: 'Exceptional dental care , on your terms',
+    title: 'Exceptional  care , on your terms',
   },
 ];
 const DentalCare = () => {
