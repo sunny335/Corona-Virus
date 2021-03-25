@@ -8,16 +8,17 @@ import {
   ModalFooter,
   FormGroup,
 } from 'reactstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { addInfo } from 'src/state/ducks/doctors';
 import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 let id = 0;
 
 const DoctorsDetails = ({ data }) => {
   const [modal, setModal] = useState(false);
-
+  const appoints = useSelector((store) => store.appoints);
   const toggle = () => setModal(!modal);
   const dispatch = useDispatch();
   const { handleSubmit, register, errors, reset } = useForm();
@@ -30,11 +31,14 @@ const DoctorsDetails = ({ data }) => {
     toggle();
     // reset();
   };
+  // console.log('appoints', appoints);
   return (
     <>
       <Grid container direction="column" alignItems="center" item md={4}>
         <div style={{ height: '250px', overflow: 'hidden' }}>
-          <img style={{ width: '350px' }} src={data.img} alt="" />
+          <Link to={`/details/${data.id}`}>
+            <img style={{ width: '350px' }} src={data.img} alt="" />
+          </Link>
         </div>
         <h3 style={{ color: '#4e4d4e', marginBottom: '7px' }}>{data.name}</h3>
         <b style={{ margin: '0', color: 'rgba(78, 77, 78, 0.451)' }}>

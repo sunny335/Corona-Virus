@@ -10,10 +10,10 @@ const Footer = () => {
         <Grid container item xs={12} style={{width:'90%', margin:'auto'}}>
             <Grid container item md={3} justify='center' direction='column'>
                 <div>
-                    <Link className='link' to='/'><h4 className='secondary-text'>Emergency Dental Care</h4></Link>
+                    <Link className='link' to='/'><h4 className='secondary-text'>Emergency  Care</h4></Link>
                     <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>
                     <Link className='link' to='/'><h4 className='secondary-text'>Treatement of Personal Disease</h4></Link>
-                    <Link className='link' to='/'><h4 className='secondary-text'>Tooth Extraction</h4></Link>
+                    <Link className='link' to='/'><h4 className='secondary-text'> Extraction</h4></Link>
                     <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>
                 </div>
             </Grid>

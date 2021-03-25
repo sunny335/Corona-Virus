@@ -5,10 +5,10 @@ const OralHealth = () => {
     return (
         <Grid item md={3}>
             <h3 className='brand-text'>Oral Health</h3>
-            <Link className='link' to='/'><h4 className='secondary-text'>Emergency Dental Care</h4></Link>
+            <Link className='link' to='/'><h4 className='secondary-text'>Emergency  Care</h4></Link>
             <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>
             <Link className='link' to='/'><h4 className='secondary-text'>Treatement of Personal Disease</h4></Link>
-            <Link className='link' to='/'><h4 className='secondary-text'>Tooth Extraction</h4></Link>
+            <Link className='link' to='/'><h4 className='secondary-text'> Extraction</h4></Link>
             <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>
             <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>
             <Link className='link' to='/'><h4 className='secondary-text'>Check Up</h4></Link>

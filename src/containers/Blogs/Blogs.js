@@ -13,7 +13,7 @@ const Blogs = () => {
       name: 'Dr. Caudi',
       date: '23 April 2019',
       img: man,
-      title: '2 times of brush can keep you healthy',
+      title: '2 times of Eat can keep you healthy',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur corporis magnam autem animi laborum ex perferendis nesciunt saepe provident iste.',
     },
@@ -21,7 +21,7 @@ const Blogs = () => {
       name: 'Dr. Winson',
       date: '23 April 2019',
       img: woman,
-      title: 'The tooth cancer is taking a challenge',
+      title: 'The cancer is taking a challenge',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur corporis magnam autem animi laborum ex perferendis nesciunt saepe provident iste.',
     },
@@ -47,7 +47,7 @@ const Blogs = () => {
           <div style={{ color: 'white', padding: '20px', marginTop: '60px' }}>
             <h4>Rashed Kabir</h4>
             <h5>22 Aug 2019</h5>
-            <h3>Check at least a doctor in a year for your teeth</h3>
+            <h3>Check at least a doctor in a year for your health</h3>
                       {/* <ArrowRightAltIcon></ArrowRightAltIcon> */}
                       <FontAwesomeIcon icon={faArrowCircleRight} />
           </div>

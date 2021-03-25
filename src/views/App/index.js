@@ -1,13 +1,22 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import { Button } from 'reactstrap';
 import 'src/assets/scss/style.scss';
+import { useSelector } from 'react-redux';
 
 import Fallback from 'src/components/Fallback';
 import NotFound from 'src/components/404';
 import withTitle from 'src/components/TitleComponent';
 import Navbar from 'src/components/Header/Navbar/Navbar';
 import Appointment from '../Appointment';
+import Dashboard from '../Dashboard';
+const Login = lazy(() => import('../Login'));
+const SignUp = lazy(() => import('../SignUp'));
 
 // Pages
 const Docs = lazy(() => import('../Documentation'));
@@ -15,6 +24,7 @@ const Home = lazy(() => import('../Home'));
 
 const App = () => {
   document.body.setAttribute('data-theme', 'dark');
+  const data = useSelector((store) => store.loginInfo);
   return (
     <>
       <Suspense fallback={<Fallback />}>
@@ -44,7 +54,50 @@ const App = () => {
                 })
               }
             />
+            <Route
+              path="/dashboard"
+              render={(props) =>
+                withTitle({
+                  component: Dashboard,
+                  title: 'Welcome',
+                  ...props,
+                })
+              }
+            />
+            {data.length < 1 ? (
+              <Route
+                path="/login"
+                render={(props) =>
+                  withTitle({
+                    component: Login,
+                    title: 'login',
+                    ...props,
+                  })
+                }
+              />
+            ) : (
+              <Redirect from="/login" to="/" />
+              // <Route
+              //   render={(props) =>
+              //     withTitle({
+              //       component: Login,
+              //       title: 'login',
+              //       ...props,
+              //     })
+              //   }
+              // />
+            )}
 
+            <Route
+              path="/signup"
+              render={(props) =>
+                withTitle({
+                  component: SignUp,
+                  title: 'signup',
+                  ...props,
+                })
+              }
+            />
             {/* Doc Page */}
             <Route
               path="/docs"
