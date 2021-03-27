@@ -53,7 +53,7 @@ const EmployerSidebar = () => {
       <CardBody className="p-0">
         <ListGroup>
           <ListGroupItem>
-            <NavLink exact to="/dashboard">
+            <NavLink exact to="/dashboard" className="text-decoration-none">
               <FontAwesomeIcon
                 className="text-primary mr-3"
                 icon={faTachometerAlt}
@@ -63,13 +63,21 @@ const EmployerSidebar = () => {
           </ListGroupItem>
 
           <ListGroupItem>
-            <NavLink exact to="/dashboard/login">
+            <NavLink
+              exact
+              to="/dashboard/login"
+              className="text-decoration-none"
+            >
               <FontAwesomeIcon className="text-primary mr-3" icon={faFile} />
               Login
             </NavLink>
           </ListGroupItem>
           <ListGroupItem>
-            <NavLink exact to="/dashboard/signup">
+            <NavLink
+              exact
+              to="/dashboard/signup"
+              className="text-decoration-none"
+            >
               <FontAwesomeIcon
                 className="text-primary mr-3"
                 icon={faSuitcase}
@@ -82,7 +90,7 @@ const EmployerSidebar = () => {
       <CardFooter className="bg-white p-0 py-3">
         <ListGroup>
           <ListGroupItem>
-            <Link to="#">
+            <Link to="#" className="text-decoration-none">
               {' '}
               <FontAwesomeIcon
                 className="text-primary mr-3"
@@ -92,7 +100,7 @@ const EmployerSidebar = () => {
             </Link>
           </ListGroupItem>
           <ListGroupItem>
-            <Link to="#">
+            <Link to="#" className="text-decoration-none">
               {' '}
               <FontAwesomeIcon
                 className="text-primary mr-3"
