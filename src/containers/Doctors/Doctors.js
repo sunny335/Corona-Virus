@@ -6,7 +6,7 @@ import DoctorsDetails from 'src/components/DoctorsDetails/DoctorsDetails';
 
 const Doctors = () => {
   const doctorsDatas = useSelector((store) => store.doctors);
-  console.log('appoints', doctorsDatas);
+
   return (
     <div style={{ marginTop: '100px', marginBottom: '100px' }}>
       <h3 style={{ textAlign: 'center' }} className="brand-text">

@@ -2,7 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const signupSlice = createSlice({
   name: 'modal',
-  initialState: [],
+  initialState: [
+    {
+      id: 1,
+      loginAs: 'user',
+      fullname: 'Md. Khair',
+      email: 'khair@gmail.com',
+      password: 123456,
+    },
+  ],
   reducers: {
     addInfos: (state, { payload }) => {
       state.push(payload);

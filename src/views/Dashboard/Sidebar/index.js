@@ -22,17 +22,26 @@ import {
   faPowerOff,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import { useSelector, useDispatch } from 'react-redux';
 
 const EmployerSidebar = () => {
+  const data = useSelector((store) => store.loginInfo);
+  const data2 = useSelector((store) => store.signupInfo);
   return (
     <Card className="sidebar-nav mb-6">
       <CardImg
         className="w-50 m-auto"
-        src="https://webstrot.com/html/jbdesk/main_version/dashboard/images/web.png"
+        src="https://scontent.fcgp8-1.fna.fbcdn.net/v/t1.0-9/160602385_3080232288874014_5919008396805321248_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=xfK313Onjd4AX981iYx&_nc_ht=scontent.fcgp8-1.fna&oh=af0dbd7acf5650ab1264812fbed4ebc2&oe=60822688"
       />
       <CardBody className="text-center">
-        <CardTitle tag="h5">Luca Wallace</CardTitle>
-        <p className="text-primary m-0">@username</p>
+        <CardTitle tag="h5"></CardTitle>@
+        {data.map((item) => (
+          <>
+            {data2.map((items) => (
+              <>{item.email == items.email && items.fullname}</>
+            ))}
+          </>
+        ))}
       </CardBody>
       <CardBody>
         <div className="d-flex justify-content-between">
@@ -49,7 +58,7 @@ const EmployerSidebar = () => {
                 className="text-primary mr-3"
                 icon={faTachometerAlt}
               />
-              Dashboard
+              Appoints
             </NavLink>
           </ListGroupItem>
 
@@ -66,27 +75,6 @@ const EmployerSidebar = () => {
                 icon={faSuitcase}
               />
               SignUp
-            </NavLink>
-          </ListGroupItem>
-          <ListGroupItem>
-            <NavLink exact to="/employer/application">
-              <FontAwesomeIcon className="text-primary mr-3" icon={faMobile} />
-              Application
-            </NavLink>
-          </ListGroupItem>
-          <ListGroupItem>
-            <NavLink exact to="/employer/post">
-              <FontAwesomeIcon
-                className="text-primary mr-3"
-                icon={faUserPlus}
-              />
-              Post New Job
-            </NavLink>
-          </ListGroupItem>
-          <ListGroupItem>
-            <NavLink exact to="/employer/plan">
-              <FontAwesomeIcon className="text-primary mr-3" icon={faTag} />
-              Pricing Plans
             </NavLink>
           </ListGroupItem>
         </ListGroup>

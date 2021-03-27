@@ -7,6 +7,8 @@ const doctorsData = [
     time: '10-11am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 2,
     appointsinfo: [],
@@ -16,6 +18,8 @@ const doctorsData = [
     time: '11-12am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 8,
     appointsinfo: [],
@@ -25,6 +29,8 @@ const doctorsData = [
     time: '9am-10am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 10,
     appointsinfo: [],
@@ -34,6 +40,8 @@ const doctorsData = [
     time: '10-11am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 2,
     appointsinfo: [],
@@ -43,6 +51,8 @@ const doctorsData = [
     time: '11-12am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 8,
     appointsinfo: [],
@@ -52,6 +62,8 @@ const doctorsData = [
     time: '9am-10am',
     name: 'Dr. Caudi',
     phone: '+132487483',
+    details:
+      'a degree in medicine recognised by the General Medical Council (GMC) a two-year foundation programme of general training specialist training in a chosen area of medicine.',
     img: doctor,
     appoints: 10,
     appointsinfo: [],

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { Col, Container, Row } from 'reactstrap';
-import { useSelector } from 'react-redux';
-
+import { Button, Col, Container, Row } from 'reactstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteItem } from 'src/state/ducks/login';
 import './Navbar.css';
 
 const Navbar = (props) => {
@@ -10,11 +10,14 @@ const Navbar = (props) => {
   const handleNavbar = () => {
     history.replace('/');
   };
+
+  const dispatch = useDispatch();
+
   const data = useSelector((store) => store.loginInfo);
   const data2 = useSelector((store) => store.signupInfo);
   console.log('sign in', data);
   return (
-    <section className="bg-info">
+    <section className="bg-info mt-5">
       <Container>
         <Row>
           <Col>
@@ -62,6 +65,37 @@ const Navbar = (props) => {
                       Appointment
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink
+                      activeStyle={{
+                        fontWeight: 'bold',
+                        color: 'red',
+                      }}
+                      className="nav-link nav-text-black mr-3"
+                      to="/areasearch"
+                      exact
+                    >
+                      Search Your Area
+                    </NavLink>
+                  </li>
+                  {data &&
+                    data.map(
+                      (items) =>
+                        items.loginAs == 'admin' && (
+                          <li className="nav-item">
+                            <NavLink
+                              activeStyle={{
+                                fontWeight: 'bold',
+                                color: 'red',
+                              }}
+                              className={`nav-link navbar-text mr-3 text-light ${props.text} `}
+                              to="/dashboard"
+                            >
+                              Dashboard
+                            </NavLink>
+                          </li>
+                        )
+                    )}
 
                   <li className="nav-item">
                     <NavLink
@@ -70,36 +104,10 @@ const Navbar = (props) => {
                         color: 'red',
                       }}
                       className={`nav-link navbar-text mr-3 text-light ${props.text} `}
-                      to="/dashboard"
+                      to="/contact"
                     >
-                      Dashboard
+                      Contact
                     </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      onClick={handleNavbar}
-                      activeStyle={{
-                        fontWeight: 'bold',
-                        color: 'red',
-                      }}
-                      className={`nav-link navbar-text mr-3 text-light ${props.text} `}
-                      href="/blog"
-                    >
-                      Blog
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      onClick={handleNavbar}
-                      activeStyle={{
-                        fontWeight: 'bold',
-                        color: 'red',
-                      }}
-                      className={`nav-link navbar-text mr-3 text-light ${props.text} `}
-                      href="/contact"
-                    >
-                      Contact Us
-                    </a>
                   </li>
 
                   {data < 1 && (
@@ -116,11 +124,27 @@ const Navbar = (props) => {
                       </NavLink>
                     </li>
                   )}
-                  {data &&
-                    data.map((item) => {
-                      <li>{item.email} ppppppp{console.log('email',item.email)}</li>;
-                    })}
-
+                  {data.map((item) => (
+                    <>
+                      <li className=" text-white me-3">
+                        {data2.map((items) => (
+                          <h4 className="mb-0 border p-2">
+                            {item.email == items.email && items.fullname}
+                          </h4>
+                        ))}
+                        {/* {item.email} tttttt{console.log('email', item.email)} */}
+                      </li>
+                      <li>
+                        <Button
+                          outline
+                          onClick={() => dispatch(deleteItem(1))}
+                          className="text-white"
+                        >
+                          Log out
+                        </Button>
+                      </li>
+                    </>
+                  ))}
                 </ul>
               </div>
             </nav>

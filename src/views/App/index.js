@@ -15,6 +15,10 @@ import withTitle from 'src/components/TitleComponent';
 import Navbar from 'src/components/Header/Navbar/Navbar';
 import Appointment from '../Appointment';
 import Dashboard from '../Dashboard';
+import SearcByArea from '../SearchByArea';
+import DoctorDetails from '../DoctorDetails';
+import ContactUs from '../ContactUs';
+import Heading from 'src/components/Heading';
 const Login = lazy(() => import('../Login'));
 const SignUp = lazy(() => import('../SignUp'));
 
@@ -29,6 +33,7 @@ const App = () => {
     <>
       <Suspense fallback={<Fallback />}>
         <Router>
+          <Heading />
           <Navbar />
           <Switch>
             {/* Page routes */}
@@ -55,6 +60,27 @@ const App = () => {
               }
             />
             <Route
+              exact
+              path="/details/:id"
+              render={(props) =>
+                withTitle({
+                  component: DoctorDetails,
+                  title: 'Welcome',
+                  ...props,
+                })
+              }
+            />
+            <Route
+              path="/areasearch"
+              render={(props) =>
+                withTitle({
+                  component: SearcByArea,
+                  title: 'areasearch',
+                  ...props,
+                })
+              }
+            />
+            <Route
               path="/dashboard"
               render={(props) =>
                 withTitle({
@@ -64,6 +90,17 @@ const App = () => {
                 })
               }
             />
+            <Route
+              path="/contact"
+              render={(props) =>
+                withTitle({
+                  component: ContactUs,
+                  title: 'signup',
+                  ...props,
+                })
+              }
+            />
+
             {data.length < 1 ? (
               <Route
                 path="/login"
@@ -77,15 +114,6 @@ const App = () => {
               />
             ) : (
               <Redirect from="/login" to="/" />
-              // <Route
-              //   render={(props) =>
-              //     withTitle({
-              //       component: Login,
-              //       title: 'login',
-              //       ...props,
-              //     })
-              //   }
-              // />
             )}
 
             <Route
@@ -98,6 +126,7 @@ const App = () => {
                 })
               }
             />
+
             {/* Doc Page */}
             <Route
               path="/docs"

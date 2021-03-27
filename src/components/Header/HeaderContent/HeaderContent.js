@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import contentImg from 'src/assets/images/smile.jpg';
+import Ticker from 'react-ticker';
 
 const HeaderContent = (props) => {
   const history = useHistory();
@@ -13,6 +13,22 @@ const HeaderContent = (props) => {
         style={{ height: '520px' }}
         className="row  d-flex align-items-center header-blog "
       >
+        <div
+          className="bg-info text-white border mb-5 position-fixed"
+          style={{ top: 0, left: 0 }}
+        >
+          {/* <Ticker height={50}>
+          {({ index }) => (
+            <>
+              <h1>Covid-19 cases are rising. States are opening up anyway.  per dayA breakdown of coronavirus deaths in the U.S., per day #{index}!  </h1>
+              <h1>
+                per dayA breakdown of coronavirus deaths in the U.S., per day
+              </h1>
+              <img src="www.my-image-source.com/" alt="" />
+            </>
+          )}
+        </Ticker> */}
+        </div>
         <div className=" col-lg-5 mt-3">
           {props.children ? (
             props.children
@@ -22,8 +38,11 @@ const HeaderContent = (props) => {
                 Your new smile start here{' '}
               </h1>
               <p className="text-secondary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus commodi corrupti exercitationem iste amet dolore!
+                Pfizer along with BioNTech SE have started testing their
+                coronavirus vaccine on children under the age of 12. The goal is
+                of expanding the inoculation campaign to protect children of
+                that age by the time 2022 rolls in. Volunteers were brought in
+                for their first injection on Wednesday.
               </p>
               <button
                 onClick={handleAppointment}

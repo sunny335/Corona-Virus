@@ -8,41 +8,30 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const data = useSelector((store) => store.loginInfo);
+
   const data2 = useSelector((store) => store.signupInfo);
 
   const dispatch = useDispatch();
   const { handleSubmit, register, errors, reset } = useForm();
 
-  // const onSubmit = async (e) => {
-  //   try {
-  //     setLoading(true);
-  //     const { data } = await signInUser(e);
-  //     setLoading(false);
-  //     reset();
-  //   } catch (error) {
-  //     if (error.response) {
-  //       console.log('problem with response', error.response.status);
-  //     } else if (error.request) {
-  //       console.log('problem with Request');
-  //     } else {
-  //       console.log('Error', error.message);
-  //     }
-  //   }
-  // };
-  console.log('login data', data);
+  let id = 0;
   const onSubmit = (data) => {
     {
       data2 &&
         data2.map((items) => {
           if (items.email == data.email && items.password == data.password) {
+            id++;
+            data.id = id;
             dispatch(addInfo(data));
             reset();
           }
         });
     }
-    console.log('login form data', data);
+    // console.log('login form data', data);
   };
+
+  const defaultData = data2 && data2.filter((item) => item.id === 1)[0];
+  console.log('def', defaultData);
 
   return (
     <Container className="pt-5 mt-5">
@@ -61,12 +50,23 @@ const Login = () => {
           >
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Login As</Form.Label>
-              <Form.Control as="select" name="loginAs" ref={register}>
+              <Form.Control
+                as="select"
+                name="loginAs"
+                ref={register}
+                defaultValue={defaultData.loginAs}
+              >
                 <option name="user" value="user">
                   User
                 </option>
                 <option name="admin" value="admin">
                   Admin
+                </option>
+                <option name="doctor" value="doctor">
+                  Doctor
+                </option>
+                <option name="Service" value="service">
+                  Services
                 </option>
               </Form.Control>
             </Form.Group>
@@ -80,6 +80,7 @@ const Login = () => {
                 ref={register({
                   required: true,
                 })}
+                defaultValue={defaultData.email}
               />
             </Form.Group>
 
@@ -94,6 +95,7 @@ const Login = () => {
                   required: true,
                   minLength: 5,
                 })}
+                defaultValue={defaultData.password}
               />
               {errors.password && errors.password.type === 'minLength' && (
                 <span className="text-danger text-capitalize">

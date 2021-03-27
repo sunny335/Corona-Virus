@@ -2,24 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { addInfos } from 'src/state/ducks/signup';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const data = useSelector((store) => store.signupInfo);
+  // const data = useSelector((store) => store.signupInfo);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const { handleSubmit, register, errors, reset } = useForm();
-
-  console.log('signup data', data);
+  let id = 0;
+  // console.log('signup data', data);
   const onSubmit = (data) => {
+    id++;
+    data.id = id;
     dispatch(addInfos(data));
     console.log('sign up form data', data);
     reset();
   };
+
   return (
     <Container className="pt-5 mt-5">
       <Row>
@@ -35,6 +38,23 @@ const SignUp = () => {
             className="mt-5 rounded"
             style={{ background: '', padding: '20px' }}
           >
+            <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Label>Sign Up As</Form.Label>
+              <Form.Control as="select" name="loginAs" ref={register}>
+                <option name="user" value="user">
+                  User
+                </option>
+                <option name="admin" value="admin">
+                  Admin
+                </option>
+                <option name="doctor" value="doctor">
+                  Doctor
+                </option>
+                <option name="Service" value="service">
+                  Services
+                </option>
+              </Form.Control>
+            </Form.Group>
             <Form.Group>
               <Form.Label>Your Name</Form.Label>
               <Form.Control
